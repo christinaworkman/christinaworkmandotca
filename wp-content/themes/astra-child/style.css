@@ -1,0 +1,21 @@
+/**
+Theme Name: Christina Workman
+Author: Christina Workman
+Author URI: https://amethystanswers.com
+Description: Astra child theme
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: christina-workman
+Template: astra
+*/
+
+body {
+	background-color: #f8f8f8;
+}
+
+.site-content {
+	margin-bottom: 120px;
+	position: relative;
+	top: 120px;
+}

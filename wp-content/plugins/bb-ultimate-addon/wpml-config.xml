@@ -1,0 +1,481 @@
+<wpml-config>
+    <beaver-builder-widgets>
+        <widget name="uabb-heading">
+            <fields>
+                <field type="Heading" editor_type="LINE">heading</field>
+                <field type="Description" editor_type="VISUAL">description</field>
+                <field type="Heading : Separator Text" editor_type="LINE">text_inline</field>
+                <field type="Link" editor_type="LINK">link</field>
+            </fields>
+        </widget>
+        <widget name="uabb-button">
+            <fields>
+                <field type="Button Text" editor_type="LINE">text</field>
+                <field type="Link" editor_type="LINK">link</field>
+            </fields>
+        </widget>
+        <widget name="uabb-call-to-action">
+            <fields>
+                <field type="Call to Action: Heading" editor_type="LINE">title</field>
+                <field type="Call to Action: Text" editor_type="VISUAL">text</field>
+                <field type="Call to Action: Button text" editor_type="LINE">btn_text</field>
+                <field type="Call to Action: Button link" editor_type="LINK">btn_link</field>
+            </fields>
+        </widget>
+        <widget name="advanced-accordion">
+            <fields-in-item items_of="acc_items">
+                <field type="Accordion Item Label" editor_type="LINE">acc_title</field>
+                <field type="Accordion Item Content" editor_type="VISUAL">ct_content</field>
+            </fields-in-item>
+        </widget>
+        <widget name="creative-link">
+            <fields-in-item items_of="screens">
+                <field type="Creative Link: Title" editor_type="LINE">title</field>
+                <field type="Creative Link: Link" editor_type="LINK">link</field>
+            </fields-in-item>
+        </widget>
+        <widget name="advanced-tabs">
+            <fields-in-item items_of="items">
+                <field type="Tabs Item Label" editor_type="LINE">label</field>
+                <field type="Tabs Item Content" editor_type="VISUAL">ct_content</field>
+            </fields-in-item>
+        </widget>
+        <widget name="info-box">
+            <fields>
+                <field type="Info Box: Title Prefix" editor_type="LINE">heading_prefix</field>
+                <field type="Info Box: Title" editor_type="LINE">title</field>
+                <field type="Info Box: Desciption" editor_type="VISUAL">text</field>
+                <field type="Info Box: Call to action text" editor_type="LINE">cta_text</field>
+                <field type="Info Box: Button text" editor_type="LINE">btn_text</field>
+                <field type="Info Box: Button link" editor_type="LINK">btn_link</field>
+                <field type="Info Box: Entire Module link" editor_type="LINK">link</field>
+            </fields>
+        </widget>
+        <widget name="ribbon">
+            <fields>
+                <field type="Ribbon Message" editor_type="LINE">title</field>
+            </fields>
+        </widget>
+        <widget name="modal-popup">
+            <fields>
+                <field type="Modal Title" editor_type="LINE">title</field>
+                <field type="Display Modal Text" editor_type="LINE">modal_text</field>
+                <field type="Modal Button Text" editor_type="LINE">btn_text</field>
+                <field type="Modal Content" editor_type="VISUAL">ct_content</field>
+            </fields>
+        </widget>
+        <widget name="mailchimp-subscribe-form">
+            <fields>
+                <field type="Subscription Form Heading" editor_type="LINE">heading</field>
+                <field type="Subscription Form Subheading" editor_type="LINE">subheading</field>
+                <field type="First Name Placeholder" editor_type="LINE">fname_label</field>
+                <field type="Last Name Placeholder" editor_type="LINE">lname_label</field>
+                <field type="Email Placeholder" editor_type="LINE">email_placeholder</field>
+                <field type="Subscription Form Button text" editor_type="LINE">btn_text</field>
+                <field type="Subscription Form : Bottom text" editor_type="VISUAL">bottom_text</field>
+                <field type="Subscription Form : Success Message" editor_type="VISUAL">success_message</field>
+                <field type="Subscription Form : Success URL" editor_type="LINK">success_url</field>
+                <field type="Subscription Form : Checkbox Text" editor_type="LINE">terms_checkbox_text</field>
+                <field type="Subscription Form : Terms Text" editor_type="VISUAL">terms_text</field>
+            </fields>
+        </widget>
+        <widget name="uabb-gravity-form">
+            <fields>
+                <field type="Gravity Form Title" editor_type="LINE">form_title</field>
+                <field type="Gravity Form Description" editor_type="VISUAL">form_desc</field>
+            </fields>
+        </widget>
+        <widget name="uabb-contact-form7">
+            <fields>
+                <field type="Contact Form 7 Title" editor_type="LINE">form_title</field>
+                <field type="Contact Form 7 Description" editor_type="VISUAL">form_desc</field>
+            </fields>
+        </widget>
+        <widget name="uabb-caldera-form-styler">
+            <fields>
+                <field type="Contact Form 7 Title" editor_type="LINE">caf_form_title</field>
+                <field type="Contact Form 7 Description" editor_type="VISUAL">caf_form_desc</field>
+            </fields>
+        </widget>
+        <widget name="uabb-contact-form">
+            <fields>
+                <field type="Contact Form : Name Label" editor_type="LINE">name_label</field>
+                <field type="Contact Form : Name Placeholder" editor_type="LINE">name_placeholder</field>
+                <field type="Contact Form : Email Label" editor_type="LINE">email_label</field>
+                <field type="Contact Form : Email Placeholder" editor_type="LINE">email_placeholder</field>
+                <field type="Contact Form : Subject Label" editor_type="LINE">subject_label</field>
+                <field type="Contact Form : Subject Placeholder" editor_type="LINE">subject_placeholder</field>
+                <field type="Contact Form : Phone Label" editor_type="LINE">phone_label</field>
+                <field type="Contact Form : Phone Placeholder" editor_type="LINE">phone_placeholder</field>
+                <field type="Contact Form : Message Label" editor_type="LINE">msg_label</field>
+                <field type="Contact Form : Message Placeholder" editor_type="LINE">msg_placeholder</field>
+                <field type="Contact Form : Success Message" editor_type="VISUAL">success_message</field>
+                <field type="Contact Form : Success URL" editor_type="LINK">success_url</field>
+                <field type="Contact Form : Button Text" editor_type="LINE">btn_text</field>
+                <field type="Contact Form : Checkbox Text" editor_type="LINE">terms_checkbox_text</field>
+                <field type="Contact Form : Terms Text" editor_type="VISUAL">terms_text</field>
+            </fields>
+        </widget>
+        <widget name="uabb-hotspot">
+            <fields-in-item items_of="hotspot_marker">
+                <field type="Hotspot: Marker Text" editor_type="VISUAL">marker_text</field>
+                <field type="Hotspot: Tooltip Content" editor_type="VISUAL">tooltip_content</field>
+                <field type="Hotspot: Link" editor_type="LINK">link</field>
+            </fields-in-item>
+        </widget>
+        <widget name="uabb-countdown">
+            <fields>
+                <field type="Countdown : Expire Message" editor_type="VISUAL">expire_message</field>
+                <field type="Countdown : Redirect Link" editor_type="LINE">redirect_link</field>
+                <field type="Countdown : Years Label ( Plural )" editor_type="LINE">year_plural_label</field>
+                <field type="Countdown : Year Label ( Singular )" editor_type="LINE">year_singular_label</field>
+                <field type="Countdown : Months Label ( Plural )" editor_type="LINE">month_plural_label</field>
+                <field type="Countdown : Month Label ( Singular )" editor_type="LINE">month_singular_label</field>
+                <field type="Countdown : Days Label ( Plural )" editor_type="LINE">day_plural_label</field>
+                <field type="Countdown : Day Label ( Singular )" editor_type="LINE">day_singular_label</field>
+                <field type="Countdown : Hours Label ( Plural )" editor_type="LINE">hour_plural_label</field>
+                <field type="Countdown : Hour Label ( Singular )" editor_type="LINE">hour_singular_label</field>
+                <field type="Countdown : Minutes Label ( Plural )" editor_type="LINE">minute_plural_label</field>
+                <field type="Countdown : Minute Label ( Singular )" editor_type="LINE">minute_singular_label</field>
+                <field type="Countdown : Seconds Label ( Plural )" editor_type="LINE">second_plural_label</field>
+                <field type="Countdown : Second Label ( Singular )" editor_type="LINE">second_singular_label</field>
+            </fields>
+        </widget>
+        <widget name="uabb-beforeafterslider">
+            <fields>
+                <field type="Before After Slider : Before text" editor_type="LINE">before_label_text</field>
+                <field type="Before After Slider : After text" editor_type="LINE">after_label_text</field>
+            </fields>
+        </widget>
+        <widget name="adv-testimonials">
+            <fields>
+                <field type="Testimonials : Author Name" editor_type="LINE">testimonial_author_no_slider</field>
+                <field type="Testimonials : Designation" editor_type="LINE">testimonial_designation_no_slider</field>
+                <field type="Testimonials : Description" editor_type="VISUAL">testimonial_description</field>
+            </fields>
+            <fields-in-item items_of="testimonials">
+                <field type="Testimonials : Author Name" editor_type="LINE">testimonial_author</field>
+                <field type="Testimonials : Designation" editor_type="LINE">testimonial_designation</field>
+                <field type="Testimonial" editor_type="VISUAL">testimonial</field>
+            </fields-in-item>
+        </widget>
+        <widget name="team">
+            <fields>
+                <field type="Team : Name" editor_type="LINE">name</field>
+                <field type="Team : Designation" editor_type="LINE">designation</field>
+                <field type="Team : Description" editor_type="VISUAL">description</field>
+                <field type="Team : Link" editor_type="LINK">custom_link</field>
+            </fields>
+        </widget>
+        <widget name="uabb-numbers">
+            <fields>
+                <field type="Counter : Text Above Number" editor_type="LINE">before_number_text</field>
+                <field type="Counter : Text Before Counter" editor_type="LINE">before_counter_text</field>
+                <field type="Counter : Text Below Number" editor_type="LINE">after_number_text</field>
+                <field type="Counter : Text After Counter" editor_type="LINE">after_counter_text</field>
+                <field type="Counter : Number Prefix" editor_type="LINE">number_prefix</field>
+                <field type="Counter : Number Suffix" editor_type="LINE">number_suffix</field>
+            </fields>
+        </widget>
+        <widget name="dual-button">
+            <fields>
+                <field type="Dual Button : Button One Text" editor_type="LINE">button_one_title</field>
+                <field type="Dual Button : Button One Link" editor_type="LINK">button_one_link</field>
+                <field type="Dual Button : Button Two Text" editor_type="LINE">button_two_title</field>
+                <field type="Dual Button : Button Two Link" editor_type="LINK">button_two_link</field>
+                <field type="Dual Button : Divider Text" editor_type="LINE">divider_text</field>
+            </fields>
+        </widget>
+        <widget name="dual-color-heading">
+            <fields>
+                <field type="Dual Color Heading : First Heading" editor_type="LINE">first_heading_text</field>
+                <field type="Dual Color Heading : First Heading Link" editor_type="LINK">first_heading_link</field>
+                <field type="Dual Color Heading : Second Heading" editor_type="LINE">second_heading_text</field>
+                <field type="Dual Color Heading : Second Heading Link" editor_type="LINK">second_heading_link</field>
+            </fields>
+        </widget>
+        <widget name="fancy-text">
+            <fields>
+                <field type="Fancy Text : Prefix" editor_type="LINE">prefix</field>
+                <field type="Fancy Text : Text" editor_type="LINE">fancy_text</field>
+                <field type="Fancy Text : Suffix" editor_type="LINE">suffix</field>
+                <field type="Fancy Text : Cursor Text" editor_type="LINE">cursor_text</field>
+            </fields>
+        </widget>
+        <widget name="flip-box">
+            <fields>
+                <field type="Flip Box : Title on Front" editor_type="LINE">title_front</field>
+                <field type="Flip Box : Description on Front" editor_type="VISUAL">desc_front</field>
+                <field type="Flip Box : Title on Back" editor_type="LINE">title_back</field>
+                <field type="Flip Box : Description on Back" editor_type="VISUAL">desc_back</field>
+            </fields>
+        </widget>
+        <widget name="image-separator">
+            <fields>
+                <field type="Image Separator : Link" editor_type="LINK">link</field>
+            </fields>
+        </widget>
+        <widget name="interactive-banner-2">
+            <fields>
+                <field type="Interactive Banner 2 : Link" editor_type="LINK">link_url</field>
+                <field type="Interactive Banner 2 : Title" editor_type="LINE">banner_title</field>
+                <field type="Interactive Banner 2 : Description" editor_type="VISUAL">banner_desc</field>
+            </fields>
+        </widget>
+        <widget name="slide-box">
+            <fields>
+                <field type="Slide Box : Title on Front" editor_type="LINE">title_front</field>
+                <field type="Slide Box : Description on Front" editor_type="VISUAL">desc_front</field>
+                <field type="Slide Box : Title on Back" editor_type="LINE">title_back</field>
+                <field type="Slide Box : Description on Back" editor_type="VISUAL">desc_back</field>
+                <field type="Slide Box : CTA Link" editor_type="LINK">link</field>
+                <field type="Slide Box : CTA Text" editor_type="LINE">cta_text</field>
+            </fields>
+        </widget>
+        <widget name="advanced-separator">
+            <fields>
+                <field type="Advanced Separator : Text" editor_type="LINE">text_inline</field>
+            </fields>
+        </widget>
+        <widget name="ihover">
+            <fields-in-item items_of="ihover_item">
+                <field type="ihover : Title" editor_type="LINE">title</field>
+                <field type="ihover : Description" editor_type="VISUAL">description</field>
+                <field type="ihover : Link" editor_type="LINK">link_url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="info-circle">
+            <fields-in-item items_of="add_circle_item">
+                <field type="Info Circle: Title" editor_type="LINE">circle_item_title</field>
+                <field type="Info Circle: Description" editor_type="VISUAL">circle_item_description</field>
+                <field type="Info Circle: CTA Text" editor_type="LINE">cta_text</field>
+                <field type="Info Circle: CTA Link" editor_type="LINK">cta_link</field>
+            </fields-in-item>
+        </widget>
+        <widget name="progress-bar">
+            <fields-in-item items_of="horizontal">
+                <field type="Progress Bar: Text Before Number" editor_type="LINE">circular_before_number</field>
+                <field type="Progress Bar: Text After Number" editor_type="LINE">circular_after_number</field>
+                <field type="Progress Bar: Title" editor_type="LINE">horizontal_before_number</field>
+            </fields-in-item>
+        </widget>
+        <widget name="google-map">
+            <fields-in-item items_of="uabb_gmap_addresses">
+                <field type="Google Map : Map Name" editor_type="LINE">map_name</field>
+                <field type="Google Map : Info Text" editor_type="VISUAL">info_window_text</field>
+            </fields-in-item>
+        </widget>
+        <widget name="info-banner">
+            <fields>
+                <field type="Info Banner: Title" editor_type="LINE">banner_title</field>
+                <field type="Info Banner: Description" editor_type="VISUAL">banner_desc</field>
+                <field type="Info Banner: Call to action text" editor_type="LINE">cta_text</field>
+                <field type="Info Banner: Button text" editor_type="LINE">btn_text</field>
+                <field type="Info Banner : Call to action button link" editor_type="LINK">btn_link</field>
+                <field type="Info Banner: Link" editor_type="LINK">link</field>
+            </fields>
+        </widget>
+        <widget name="info-list">
+            <fields-in-item items_of="add_list_item">
+                <field type="Info List : Title" editor_type="LINE">list_item_title</field>
+                <field type="Info List : Link" editor_type="LINK">list_item_url</field>
+                <field type="Info List : Description" editor_type="VISUAL">list_item_description</field>
+                <field type="Info List : Custom Text" editor_type="LINE">custom_text</field>
+            </fields-in-item>
+        </widget>
+        <widget name="image-icon">
+            <fields>
+                <field type="Photo : URL" editor_type="LINE">photo_url</field>
+            </fields>
+        </widget>
+        <widget name="uabb-photo">
+            <fields>
+                <field type="Photo : Link" editor_type="LINK">link_url</field>
+            </fields>
+        </widget>
+        <widget name="advanced-icon">
+            <fields-in-item items_of="icons">
+                <field type="Icon : Link" editor_type="LINK">link</field>
+            </fields-in-item>
+        </widget>
+        <widget name="blog-posts">
+            <fields>
+                <field type="Advanced Posts : Call to action text" editor_type="LINE">cta_text</field>
+                <field type="Advanced Posts : Button Text" editor_type="LINE">btn_text</field>
+                <field type="Advanced Posts : No Results Message" editor_type="LINE">no_results_message</field>
+            </fields>
+        </widget>
+        <widget name="info-table">
+            <fields>
+                <field type="Info Table : Heading" editor_type="LINE">it_title</field>
+                <field type="Info Table : Sub Heading" editor_type="LINE">sub_heading</field>
+                <field type="Info Table : Description" editor_type="LINE">it_long_desc</field>
+                <field type="Info Table : Call to action button text" editor_type="LINE">button_text</field>
+                <field type="Info Table : Link" editor_type="LINK">it_link</field>
+            </fields>
+        </widget>
+        <widget name="interactive-banner-1">
+            <fields>
+                <field type="Interactive Banner : Title" editor_type="LINE">banner_title</field>
+                <field type="Interactive Banner : Description" editor_type="VISUAL">banner_desc</field>
+                <field type="Interactive Banner : Link" editor_type="LINK">cta_link</field>
+            </fields>
+        </widget>
+        <widget name="list-icon">
+            <fields-in-item items_of="list_items">
+                <field type="List Icon : Title" editor_type="LINE">title</field>
+            </fields-in-item>
+        </widget>
+        <widget name="uabb-content-toggle">
+            <fields>
+                <field type="Content Toggle : Heading 1" editor_type="LINE">cont1_heading</field>
+                <field type="Content Toggle : Content 1" editor_type="VISUAL">content_editor</field>
+                <field type="Content Toggle : Heading 2" editor_type="LINE">cont2_heading</field>
+                <field type="Content Toggle : Content 2" editor_type="VISUAL">content2_editor</field>
+            </fields>
+        </widget>
+        <widget name="uabb-business-hours">
+            <fields-in-item items_of="businessHours">
+                <field type="Business Hours : Enter Day" editor_type="LINK">days</field>
+                <field type="Business Hours : Enter Time" editor_type="LINK">hours</field>
+            </fields-in-item>
+        </widget>
+        <widget name="uabb-woo-add-to-cart">
+            <fields>
+                <field type="Button: Text" editor_type="LINE">btn_text</field>
+            </fields>
+        </widget>
+        <widget name="uabb-woo-products">
+            <fields>
+                <field type="Sale Flash: Flash Content" editor_type="LINE">sale_flash_content</field>
+                <field type="Featured Flash: Flash Content" editor_type="LINE">featured_flash_content</field>
+            </fields>
+        </widget>
+        <widget name="uabb-video">
+            <fields>
+                <field type="Video: YouTube Link" editor_type="LINE">youtube_link</field>
+                <field type="Video: Vimeo Link" editor_type="LINE">vimeo_link</field>
+                <field type="Video : Subscribe to channel text" editor_type="LINE">yt_subscribe_text</field>
+                <field type="Video : This is info bar" editor_type="LINE">sticky_info_bar_text</field>
+            </fields>
+        </widget>
+        <widget name="uabb-video-gallery">
+            <fields-in-item items_of="form_gallery">
+                <field type="Video Gallery : YouTube Link" editor_type="LINK">youtube_link</field>
+                <field type="Video Gallery : Vimeo Link" editor_type="LINK">vimeo_link</field>
+                <field type="Video Gallery : Caption" editor_type="LINE">title</field>
+                <field type="Video Gallery : Categories" editor_type="LINE">tags</field>
+                <field type="Video Gallery : 'All' Tab Label" editor_type="LINE">filters_all_text</field>
+                <field type="Video Gallery : Category Name" editor_type="LINE">default_filter</field>
+                <field type="Video Gallery : Title Text" editor_type="LINE">filters_heading_text</field>
+            </fields-in-item>
+        </widget>
+        <widget name="uabb-price-list">
+            <fields-in-item items_of="add_price_list_item">
+                <field type="Price List: Title" editor_type="LINE">price_list_item_title</field>
+                <field type="Price List : Link" editor_type="LINK">price_list_item_url</field>
+                <field type="Price List : Description" editor_type="VISUAL">price_list_item_description</field>
+                <field type="Price List : Regular Price" editor_type="LINE">price</field>
+                <field type="Price List : Original Price" editor_type="LINE">original_price</field>
+            </fields-in-item>
+        </widget>
+        <widget name="uabb-marketing-button">
+            <fields>
+                <field type="Marketing Button : Title" editor_type="LINE">title</field>
+                <field type="Marketing Button : Description" editor_type="LINE">sub_title</field>
+                <field type="Marketing Button : Link" editor_type="LINK">link</field>
+            </fields>
+        </widget>
+        <widget name="photo-gallery">
+            <fields>
+                <field type="Photo Gallery : 'All' Tab Label" editor_type="LINE">filters_all_text</field>
+                <field type="Photo Gallery : Enter Default Category Name" editor_type="LINE">default_filter</field>
+                <field type="Photo Gallery : Title Text" editor_type="LINK">filters_heading_text</field>
+            </fields>
+        </widget>
+        <widget name="uabb-business-reviews">
+            <fields>
+                <field type="Business Reviews : Read More Text" editor_type="LINE">read_more</field>
+            </fields>
+        </widget>
+        <widget name="uabb-off-canvas">
+            <fields>
+                <field type="Off Canvas : Content" editor_type="VISUAL">ct_content</field>
+                <field type="Off Canvas : Button Text" editor_type="LINE">btn_text</field>
+            </fields>
+        </widget>
+        <widget name="uabb-retina-image">
+            <fields>
+                <field type="Retina Image : Custom Caption" editor_type="LINE">custom_caption</field>
+            </fields>
+        </widget>
+        <widget name="pricing-box">
+            <fields-in-item items_of="pricing_columns">
+                <field type="Pricing Box: Featured Text" editor_type="LINE">featured_text</field>
+                <field type="Pricing Box: Title" editor_type="LINE">title</field>
+                <field type="Pricing Box: Button Text" editor_type="LINE">btn_text</field>
+                <field type="Pricing Box: Button Link" editor_type="LINK">btn_link</field>
+            </fields-in-item>
+        </widget>
+        <widget name="uabb-login-form">
+            <fields>
+                <field type="UABB Login : Username Field Label" editor_type="LINE">username_label</field>
+                <field type="UABB Login : Username Field Placeholder" editor_type="LINE">username_placeholder</field>
+                <field type="UABB Login : Password Field Label" editor_type="LINE">password_label</field>
+                <field type="UABB Login : Password Field Placeholder" editor_type="LINK">password_placeholder</field>
+                <field type="UABB Login : Lost your Password Text" editor_type="LINE">lost_your_password_text</field>
+                <field type="UABB Login : Lost Your Password URL" editor_type="LINK">lost_your_password_url</field>
+                <field type="UABB Login : Custom Link Text" editor_type="LINE">custom_link_text</field>
+                <field type="UABB Login : Custom Link URL" editor_type="LINK">custom_link_url</field>
+                <field type="UABB Login : Remember me Text" editor_type="LINE">rememberme_text</field>
+                <field type="UABB Login : WP Login Button Text" editor_type="LINE">wp_login_btn_text</field>
+                <field type="UABB Login : Custom Login Redirect URL" editor_type="LINK">login_redirect_url</field>
+                <field type="UABB Login : Custom Logout Redirect URL" editor_type="LINK">logout_redirect_url</field>
+            </fields>
+        </widget>
+        <widget name="uabb-how-to">
+            <fields-in-item items_of="step_data">
+                <field type="UABB How To : Title" editor_type="LINK">uabb_how_to_title</field>
+                <field type="UABB How To : Description" editor_type="VISUAL">description</field>
+                <field type="UABB How To : Total Time Text" editor_type="LINE">total_time_text</field>
+                <field type="UABB How To : Estimated Cost Text" editor_type="LINK">estimated_cost_text</field>
+                <field type="UABB How To : Supply Title" editor_type="LINE">supply_title</field>
+                <field type="UABB How To : Supply" editor_type="LINE">uabb_supply</field>
+                <field type="UABB How To : Tool Title" editor_type="LINE">tool_title</field>
+                <field type="UABB How To : Tool" editor_type="LINE">uabb_tool</field>
+                <field type="UABB How To : Section Title" editor_type="LINE">step_section_title</field>
+                <field type="UABB How To : Title" editor_type="LINE">step_title</field>
+                <field type="UABB How To : Description" editor_type="VISUAL">step_description</field>
+                <field type="UABB How To : Link" editor_type="LINE">step_link</field>
+            </fields-in-item>
+        </widget>
+        <widget name="uabb-faq">
+            <fields-in-item items_of="faq_items">
+                <field type="UABB How To : Title" editor_type="LINE">faq_question</field>
+                <field type="UABB How To : Description" editor_type="VISUAL">faq_answer</field>
+            </fields-in-item>
+        </widget>
+        <widget name="uabb-search">
+            <fields>
+                <field type="Placeholder Text" editor_type="LINE">placeholder</field>
+                <field type="Button Text" editor_type="LINE">btn_text</field>
+                <field type="No Results Message" editor_type="VISUAL">no_results_message</field>
+            </fields>
+        </widget>
+        <widget name="uabb-table-of-contents">
+            <fields>
+                <field type="Table of Contents: Title Text" editor_type="LINE">heading_title</field>
+            </fields>
+        </widget>
+        <widget name="uabb-timeline">
+            <fields-in-item items_of="items">
+                <field type="UABB Advanced Timeline : Heading" editor_type="LINE">heading</field>
+                <field type="UABB Advanced Timeline : Description" editor_type="VISUAL">description</field>
+                <field type="UABB Advanced Timeline : Link" editor_type="LINK">link</field>
+            </fields-in-item>
+            <field type="UABB Advanced Timeline : Link Text" editor_type="LINE">link_text</field>
+            <field type="UABB Advanced Timeline : Custom Meta Key" editor_type="LINE">custom_meta_key</field>
+            <field type="UABB Advanced Timeline : No Results Message" editor_type="LINE">no_results_message</field>
+        </widget>
+    </beaver-builder-widgets>
+</wpml-config>

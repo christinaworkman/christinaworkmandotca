@@ -1,0 +1,90 @@
+.uabb-heading-wrapper .uabb-heading {
+	padding: 0;
+	margin: 0;
+}
+
+.uabb-module-content.uabb-heading-wrapper {
+	position: relative;
+}
+
+.uabb-module-content .uabb-text-editor :not(a) {
+	color: inherit;
+}
+
+.uabb-module-content .uabb-text-editor :not(i) {
+	font-family: inherit;
+}
+
+.uabb-module-content .uabb-text-editor :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.uabb-module-content .uabb-text-editor :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(strong):not(b):not(i) {
+	font-weight: inherit;
+}
+
+.uabb-background-heading-wrap {
+	z-index: 2;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+.uabb-background-heading-wrap::before {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	z-index: 0;
+	display: block;
+	color: rgba(0, 0, 0, 0.09);
+	content: attr(data-background-text);
+	font-size: 100px;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.uabb-module-content.uabb-heading-wrapper.uabb-heading-align-center .uabb-background-heading-wrap:before {
+	top: 40%;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.uabb-module-content.uabb-heading-wrapper.uabb-heading-align-right .uabb-background-heading-wrap:before {
+	right: 0;
+	left: auto;
+}
+
+.uabb-heading-wrapper .uabb-heading a,
+.uabb-heading a,
+.uabb-heading a:hover,
+.uabb-heading a:focus,
+.uabb-heading a:active {
+	text-decoration: none;
+}
+
+.uabb-heading-align-left .uabb-heading,
+.uabb-heading-align-left .uabb-subheading,
+.uabb-heading-align-left .uabb-subheading *,
+.uabb-module-content.uabb-heading-wrapper.uabb-heading-align-left .uabb-background-heading-wrap {
+	text-align: left;
+}
+
+.uabb-heading-align-center .uabb-heading,
+.uabb-heading-align-center .uabb-subheading,
+.uabb-heading-align-center .uabb-subheading *,
+.uabb-module-content.uabb-heading-wrapper.uabb-heading-align-center .uabb-background-heading-wrap {
+	text-align: center;
+}
+
+.uabb-heading-align-right .uabb-heading,
+.uabb-heading-align-right .uabb-subheading,
+.uabb-heading-align-right .uabb-subheading *,
+.uabb-module-content.uabb-heading-wrapper.uabb-heading-align-right .uabb-background-heading-wrap {
+	text-align: right;
+}
