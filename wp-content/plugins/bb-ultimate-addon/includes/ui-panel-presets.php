@@ -1,0 +1,92 @@
+<?php
+/**
+ *  Preset Templates - ( categorized & uncategorized )
+ *
+ *  Showing imported preset templates from /templates/presets-*.dat
+ *
+ *  @package Imported preset templates
+ */
+
+?>
+
+<div class="fl-builder-panel fl-builder-panel-ultimate-presets">
+	<div class="fl-builder-panel-actions">
+		<i class="fl-builder-panel-close fa fa-times"></i>
+	</div>
+	<div class="fl-builder-panel-content-wrap fl-nanoscroller">
+		<div class="fl-builder-panel-content fl-nanoscroller-content">
+			<div class="fl-builder-blocks">
+
+				<!-- Search Presets -->
+				<div id="fl-builder-blocks-rows" class="fl-builder-blocks-section">
+					<input type="text" id="presets_search" placeholder="Search Preset..." style="width: 100%;">
+					<div class="filter-count"></div>
+				</div><!-- Search Presets -->
+
+				<?php do_action( 'uabb_fl_builder_ui_panel_before_presets' ); ?>
+
+				<?php
+
+				/**
+				 * Renders UABB categorized module templates in the UI panel.
+				 *
+				 * @see render_ui_panel_modules_templates()
+				 */
+				if ( ! $is_module_template && $has_editing_cap ) {
+
+					$uabb_module_templates = UABB_UI_Panels::uabb_templates_data( $module_templates, 'includes' );
+
+					if ( count( $uabb_module_templates ) > 0 ) :
+
+						foreach ( $uabb_module_templates['categorized'] as $template_cat ) :
+
+							// avoid 'Uncategorized'.
+							if ( trim( $template_cat['name'] ) !== 'Uncategorized' ) :
+								?>
+								<div class="fl-builder-blocks-section">
+									<span class="fl-builder-blocks-section-title">
+										<?php echo esc_attr( __( $template_cat['name'], 'uabb' ) ); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?>
+										<i class="fa fa-chevron-down"></i>
+									</span>
+									<div class="fl-builder-blocks-section-content fl-builder-module-templates">
+
+										<?php
+										foreach ( $template_cat['templates'] as $template ) :
+
+											// Get tags.
+											$tags = '';
+											if ( is_array( $template['tags'] ) && count( $template['tags'] ) > 0 ) {
+												$tags = implode( ', ', $template['tags'] );
+											}
+											?>
+
+											<span class="fl-builder-block fl-builder-block-template fl-builder-block-module-template" data-id="<?php echo esc_attr( $template['id'] ); ?>" data-type="<?php echo esc_attr( $template['type'] ); ?>">
+												<?php if ( ! stristr( $template['image'], 'blank.jpg' ) ) : ?>
+												<img class="fl-builder-block-template-image" src="<?php echo esc_attr( $template['image'] ); ?>" />
+												<?php endif; ?>
+												<span class="fl-builder-block-title" data-tags="<?php echo esc_attr( $tags ); ?>" data-cat-name="<?php echo esc_attr( $template_cat['name'] ); ?>"><?php echo esc_attr( $template['name'] ); ?></span>
+											</span>
+										<?php endforeach; ?>
+									</div>
+								</div>
+								<?php
+							endif;
+						endforeach;
+					endif;
+				}
+				?>
+
+				<?php do_action( 'uabb_fl_builder_ui_panel_after_presets' ); ?>
+
+				<div class="fl-builder-modules-cta">
+					<a href="#" onclick="window.open('<?php echo esc_url( admin_url() ); ?>options-general.php?page=fl-builder-settings#uabb-template-manager');" target="_blank" rel="noopener"><i class="fa fa-external-link-square"></i>
+						<?php
+						/* translators: %s: search term */
+						echo sprintf( esc_attr__( 'Note - You can enable, disable and manage %s presets here.', 'uabb' ), esc_attr( UABB_PREFIX ) );
+						?>
+						</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

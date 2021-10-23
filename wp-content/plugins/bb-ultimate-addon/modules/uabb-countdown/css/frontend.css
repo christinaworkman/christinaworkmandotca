@@ -1,0 +1,309 @@
+.uabb-module-content.uabb-countdown.uabb-timer {
+	width: 100%;
+}
+
+.uabb-module-content.uabb-countdown.uabb-fixed-date-countWeeks,
+.uabb-module-content.uabb-countdown.uabb-fixed-date-countDays,
+.uabb-module-content.uabb-countdown.uabb-fixed-date-countHours,
+.uabb-module-content.uabb-countdown.uabb-fixed-date-countMinutes,
+.uabb-module-content.uabb-countdown.uabb-fixed-date-countSeconds,
+.uabb-module-content.uabb-countdown.uabb-evergreen-date-countWeeks,
+.uabb-module-content.uabb-countdown.uabb-evergreen-date-countDays,
+.uabb-module-content.uabb-countdown.uabb-evergreen-date-countHours,
+.uabb-module-content.uabb-countdown.uabb-evergreen-date-countMinutes,
+.uabb-module-content.uabb-countdown.uabb-evergreen-date-countSeconds {
+	border: 4px solid #000;
+	border-radius: 50%;
+	padding: 30px;
+	margin-right: 20px;
+}
+
+.uabb-countdown-holding .uabb-count-down-unit,
+.uabb-countdown-holding .uabb-count-down-digit {
+	padding: 0;
+	margin: 0;
+}
+
+.uabb-countdown-fixed-timer .uabb-count-down-digit,
+.uabb-countdown-evergreen-timer .uabb-count-down-digit {
+	font-size: 50px;
+}
+
+.uabb-countdown-fixed-timer .uabb-count-down-unit,
+.uabb-countdown-evergreen-timer .uabb-count-down-unit {
+	font-size: 15px;
+}
+
+.uabb-countdown .uabb-countdown-digit-wrapper.square {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-holdings: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.countdown-rtl {
+	direction: rtl;
+}
+
+.countdown-holding span {
+	color: #888;
+}
+
+.countdown-row {
+	clear: both;
+	width: 100%;
+	padding: 0 2px;
+	text-align: center;
+}
+
+.countdown-show1 .countdown-section {
+	width: 98%;
+}
+
+.countdown-show2 .countdown-section {
+	width: 48%;
+}
+
+.countdown-show3 .countdown-section {
+	width: 32.5%;
+}
+
+.countdown-show4 .countdown-section {
+	width: 24.5%;
+}
+
+.countdown-show5 .countdown-section {
+	width: 19.5%;
+}
+
+.countdown-show6 .countdown-section {
+	width: 16.25%;
+}
+
+.countdown-show7 .countdown-section {
+	width: 14%;
+}
+
+.countdown-section {
+	display: block;
+	font-size: 75%;
+	text-align: center;
+}
+
+.countdown-amount {
+	font-size: 200%;
+}
+
+.countdown-period {
+	display: block;
+}
+
+.countdown-descr {
+	display: block;
+	width: 100%;
+}
+
+.uabb-countdown-custom-fields {
+	float: left;
+	text-align: center;
+}
+
+.uabb-countdown-fixed-timer,
+.uabb-countdown-evergreen-timer {
+	width: 100%;
+	display: block;
+}
+
+.uabb-countdown-fixed-timer .uabb-countdown-holding,
+.uabb-countdown-evergreen-timer .uabb-countdown-holding {
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+.uabb-countdown-digit-wrapper,
+.uabb-countdown-unit-names {
+	text-align: center;
+}
+
+@-webkit-keyframes flash {
+	0%,
+	50%,
+	100% {
+		opacity: 1;
+		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	}
+	25%,
+	75% {
+		opacity: 0;
+		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	}
+}
+
+@keyframes flash {
+	0%,
+	50%,
+	100% {
+		opacity: 1;
+		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	}
+	25%,
+	75% {
+		opacity: 0;
+		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	}
+}
+
+@-webkit-keyframes pulse {
+	50% {
+		-webkit-transform: scale(1.1);
+	}
+	0%,
+	100% {
+		-webkit-transform: scale(1);
+	}
+}
+
+@keyframes pulse {
+	50% {
+		-webkit-transform: scale(1.1);
+		transform: scale(1.1);
+	}
+	0%,
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+@-webkit-keyframes bounce {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		-webkit-transform: translateY(0);
+	}
+	40% {
+		-webkit-transform: translateY(-30px);
+	}
+	60% {
+		-webkit-transform: translateY(-15px);
+	}
+}
+
+@keyframes bounce {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+	40% {
+		-webkit-transform: translateY(-30px);
+		transform: translateY(-30px);
+	}
+	60% {
+		-webkit-transform: translateY(-15px);
+		transform: translateY(-15px);
+	}
+}
+
+@-webkit-keyframes shake {
+	0%,
+	100% {
+		-webkit-transform: translateX(0);
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: translateX(-30px);
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		-webkit-transform: translateX(30px);
+	}
+}
+
+@keyframes shake {
+	0%,
+	100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: translateX(-30px);
+		transform: translateX(-30px);
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		-webkit-transform: translateX(30px);
+		transform: translateX(30px);
+	}
+}
+
+.uabb-countdown.uabb-countdown-separator-line .uabb-countdown-holding {
+	position: relative;
+	padding: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.uabb-countdown.uabb-countdown-separator-colon .uabb-countdown-digit-wrapper {
+	position: relative;
+}
+
+.uabb-countdown.uabb-countdown-separator-colon .uabb-countdown-holding .uabb-countdown-digit-wrapper:after {
+	content: ':';
+	display: inline-block;
+	font-size: 30px;
+	position: absolute;
+	right: -5px;
+	top: 50%;
+	z-index: 10;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.uabb-countdown.uabb-countdown-separator-line .uabb-countdown-holding:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	z-index: 10;
+	border-right: 1px solid #ccc;
+}
+
+.uabb-countdown.uabb-countdown-separator-colon .uabb-countdown-holding:last-child .uabb-countdown-digit-wrapper:after,
+.uabb-countdown.uabb-countdown-separator-line .uabb-countdown-holding:last-child:after {
+	content: none;
+}
+
+@media (max-width: 600px) {
+	.uabb-hide-seprator-yes .uabb-countdown.uabb-countdown-separator-line .uabb-countdown-holding:after,
+	.uabb-hide-seprator-yes .uabb-countdown.uabb-countdown-separator-colon .uabb-countdown-digit-wrapper:after {
+		display: none!important;
+	}
+}

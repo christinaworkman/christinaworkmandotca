@@ -1,0 +1,302 @@
+.uabb-rbs-switch-label {
+	position: relative;
+	display: inline-block;
+	width: 4.5em;
+	height: 2.3em;
+	vertical-align: middle;
+}
+
+.uabb-main-btn {
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.uabb-rbs-slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.uabb-rbs-slider:before {
+	position: absolute;
+	content: "";
+	height: 1.8em;
+	width: 1.8em;
+	left: .25em;
+	bottom: .25em;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.uabb-rbs-switch.checked+.uabb-rbs-slider:before {
+	-webkit-transform: translateX(2.1em);
+	-ms-transform: translateX(2.1em);
+	transform: translateX(2.1em);
+}
+
+.uabb-rbs-slider.uabb-rbs-round {
+	-webkit-border-radius: 1.5em;
+	border-radius: 1.5em;
+	background: #757575;
+}
+
+.uabb-rbs-slider.uabb-rbs-round:before {
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.uabb-ct-desktop-stack--yes .uabb-rbs-toggle {
+	-js-display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-moz-box-orient: vertical;
+	-moz-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-js-display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-moz-box-orient: vertical;
+	-moz-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.uabb-label-box {
+	position: relative;
+	width: 7em;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	vertical-align: middle;
+}
+
+.uabb-label-box-label {
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+	border: 0 solid #999;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.uabb-label-box-inner {
+	display: block;
+	width: 200%;
+	margin-left: -100%;
+	-webkit-transition: margin .3s ease-in 0s;
+	transition: margin .3s ease-in 0s;
+}
+
+.uabb-label-box-inner > span {
+	display: block;
+	float: left;
+	position: relative;
+	width: 50%;
+	height: 2.1em;
+	padding: 0;
+	line-height: 2.1em;
+	font-size: 1em;
+	color: #fff;
+	font-family: Trebuchet, Arial, sans-serif;
+	font-weight: 700;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.uabb-label-box-inner .uabb-label-box-active {
+	padding-left: 2em;
+	background-color: #EEE;
+	color: #FFF;
+}
+
+.uabb-label-box-inner .uabb-label-box-inactive {
+	padding-right: 2em;
+	background-color: #EEE;
+	color: #FFF;
+	text-align: right;
+}
+
+.uabb-label-box-switch {
+	display: block;
+	width: 50%;
+	margin: 0;
+	text-align: center;
+	border: 0 solid #999;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+.uabb-label-box-active .uabb-label-box-switch {
+	background: #A1A1A1;
+	left: 0;
+}
+
+.uabb-label-box-inactive .uabb-label-box-switch {
+	right: 0;
+}
+
+.uabb-label-box-checkbox.checked+.uabb-label-box-label .uabb-label-box-inner {
+	margin-left: 0;
+}
+
+.uabb-toggle {
+	display: block;
+	position: relative;
+	background: 0 0;
+	width: 3.8em;
+}
+
+.uabb-toggle .uabb-rbs-switch-2+label {
+	position: relative;
+	display: inline-block;
+	top: 0;
+	left: .2em;
+	padding-left: 0;
+	color: #000;
+	cursor: pointer;
+	width: 2.28em;
+	height: 1.3em;
+}
+
+.uabb-toggle .uabb-rbs-switch-2+label:before {
+	-webkit-transition: background-color .4s ease;
+	transition: background-color .4s ease;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	position: absolute;
+	top: .4em;
+	left: 0;
+	content: '';
+	width: 3.5em;
+	height: 1em;
+	background-color: #767676;
+	-webkit-border-radius: .5em;
+	border-radius: .5em;
+}
+
+.uabb-toggle .uabb-rbs-switch-2+label:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: -webkit-transform .4s cubic-bezier(0.45, 1.8, 0.5, 0.75), ;
+	-webkit-transition: -webkit-transform .4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+	transition: -webkit-transform .4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+	transition: transform .4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+	transition: transform .4s cubic-bezier(0.45, 1.8, 0.5, 0.75), -webkit-transform .4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+	position: absolute;
+	top: 0;
+	left: -.2em;
+	width: 2.4em;
+	height: 2.4em;
+	content: '';
+	font-size: .75em;
+	-webkit-border-radius: 500em;
+	border-radius: 500em;
+	border: .3em solid #767676;
+}
+
+.uabb-switch-round-2 {
+	visibility: hidden;
+	margin: 0!important;
+	padding: 0!important;
+	opacity: 0;
+	display: none;
+}
+
+.uabb-rbs-content-1 p,
+.uabb-rbs-content-2 p {
+	margin-bottom: 0;
+}
+
+.uabb-rbs-slider.uabb-rbs-rect {
+	background: #757575;
+}
+
+.uabb-rbs-switch-label .uabb-rbs-switch,
+.uabb-label-box-checkbox {
+	display: none;
+}
+
+.fl-module-uabb-content-toggle .uabb-rbs-head-1,
+.fl-module-uabb-content-toggle .uabb-rbs-head-2 {
+	margin: 0;
+	padding: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.uabb-ct-desktop-stack--no .uabb-rbs-toggle,
+.uabb-rbs-toggle {
+	-js-display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	-moz-box-orient: horizontal;
+	-moz-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-js-display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	-moz-box-orient: horizontal;
+	-moz-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
