@@ -19,3 +19,7 @@ body {
 	position: relative;
 	top: 120px;
 }
+
+ul {
+	margin: 20px;
+}
