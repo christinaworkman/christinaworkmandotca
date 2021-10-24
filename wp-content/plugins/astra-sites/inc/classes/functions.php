@@ -101,12 +101,36 @@ function astra_sites_is_valid_url( $url = '' ) {
 		return false;
 	}
 
+	$valid_hosts = array(
+		'lh3.googleusercontent.com',
+		'pixabay.com',
+	);
+
 	$api_domain_parse_url = wp_parse_url( Astra_Sites::get_instance()->get_api_domain() );
+	$valid_hosts[] = $api_domain_parse_url['host'];
 
 	// Validate host.
-	if ( $parse_url['host'] === $api_domain_parse_url['host'] ) {
+	if ( in_array( $parse_url['host'], $valid_hosts, true ) ) {
 		return true;
 	}
 
 	return false;
 }
+
+/**
+ * Get API params
+ *
+ * @since 2.7.3
+ * @return array
+ */
+function astra_sites_get_api_params() {
+	return apply_filters(
+		'astra_sites_api_params', array(
+			'purchase_key' => '',
+			'site_url'     => get_site_url(),
+			'per-page'     => 15,
+			'template_status' => '',
+		)
+	);
+}
+

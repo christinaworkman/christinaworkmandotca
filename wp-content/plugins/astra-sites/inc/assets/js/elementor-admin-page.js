@@ -998,18 +998,34 @@ var AstraSitesAjaxQueue = (function () {
 
 				AstraElementorSitesAdmin._importWPForm(AstraElementorSitesAdmin.templateData['astra-site-wpforms-path'], function (form_response) {
 
-					fetch(AstraElementorSitesAdmin.templateData['astra-page-api-url'] + '/?site_url=' + astraElementorSites.siteURL).then(response => {
-						return response.json();
-					}).then(data => {
-						AstraElementorSitesAdmin.insertData = data;
-						if ('insert' == AstraElementorSitesAdmin.action) {
-							AstraElementorSitesAdmin._insertDemo(data);
-						} else {
-							AstraElementorSitesAdmin._createTemplate(data);
-						}
-					}).catch(err => {
-						console.log(err);
+					$.ajax({
+						url: astraElementorSites.ajaxurl,
+						type: 'POST',
+						data: {
+							action: 'astra-sites-remote-request',
+							url: AstraElementorSitesAdmin.templateData['astra-page-api-url'],
+							_ajax_nonce: astraElementorSites._ajax_nonce,
+						},
+						beforeSend: function () {
+							console.groupCollapsed('Get Template Details.');
+						},
+					})
+					.fail(function (jqXHR) {
+						console.log(jqXHR);
 						console.groupEnd();
+					})
+					.done(function (response) {
+						console.log( response );
+						console.groupEnd();
+
+						if( response.success ) {
+							AstraElementorSitesAdmin.insertData = response.data;
+							if ('insert' == AstraElementorSitesAdmin.action) {
+								AstraElementorSitesAdmin._insertDemo(response.data);
+							} else {
+								AstraElementorSitesAdmin._createTemplate(response.data);
+							}
+						}
 					});
 				});
 
@@ -1173,9 +1189,9 @@ var AstraSitesAjaxQueue = (function () {
 				let api_url = '';
 
 				if ('blocks' == AstraElementorSitesAdmin.type) {
-					api_url = astraElementorSites.ApiURL + 'astra-blocks/' + data['id'] + '/?site_url=' + astraElementorSites.siteURL;
+					api_url = astraElementorSites.ApiURL + 'astra-blocks/' + data['id'] + '/';
 				} else {
-					api_url = AstraElementorSitesAdmin.templateData['astra-page-api-url'] + '/?site_url=' + astraElementorSites.siteURL;
+					api_url = AstraElementorSitesAdmin.templateData['astra-page-api-url'] + '/';
 				}
 
 				$.ajax({
@@ -1503,7 +1519,6 @@ var AstraSitesAjaxQueue = (function () {
 					slug: 'astra-blocks' + '/' + data['id']
 				};
 			}
-
 
 			var params = {
 				method: 'GET',

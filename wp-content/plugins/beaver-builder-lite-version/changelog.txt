@@ -1,3 +1,9 @@
+<h4>2.5.0.3 - 10/19/2021</h4>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+		<li>BB Lite: Fix icon picker not working in some setups when jquery-throttle is not enqueued</li>
+</ul>
+
 <h4>2.5.0.2 - 10/7/2021</h4>
 <p><strong>Enhancements</strong></p>
 <ul>

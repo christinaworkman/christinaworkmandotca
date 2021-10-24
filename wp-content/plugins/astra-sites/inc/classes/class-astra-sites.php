@@ -139,9 +139,11 @@ if ( ! class_exists( 'Astra_Sites' ) ) :
 				'astra-sites-import-media' => 'import_media',
 				'astra-sites-create-template' => 'create_template',
 				'astra-sites-create-image' => 'create_image',
+				'astra-sites-search-images' => 'search_images',
 				'astra-sites-getting-started-notice' => 'getting_started_notice',
 				'astra-sites-favorite' => 'add_to_favorite',
 				'astra-sites-api-request' => 'api_request',
+				'astra-sites-remote-request' => 'remote_request',
 				'astra-page-elementor-batch-process' => 'elementor_batch_process',
 				'astra-sites-update-subscription' => 'update_subscription',
 			);
@@ -418,10 +420,10 @@ if ( ! class_exists( 'Astra_Sites' ) ) :
 			$api_url = isset( $_POST['url'] ) ? esc_url_raw( $_POST['url'] ) : '';
 
 			if ( ! astra_sites_is_valid_url( $api_url ) ) {
-				wp_send_json_error( __( 'Invalid API URL', 'astra-sites' ) );
+				wp_send_json_error( __( 'Invalid API URL.', 'astra-sites' ) );
 			}
 
-			$response = wp_remote_get( $_POST['url'] );
+			$response = wp_remote_get( $api_url );
 
 			if ( is_wp_error( $response ) ) {
 				wp_send_json_error( wp_remote_retrieve_body( $response ) );
@@ -451,25 +453,80 @@ if ( ! class_exists( 'Astra_Sites' ) ) :
 		}
 
 		/**
+		 * Elementor Templates Request
+		 *
+		 * @since 2.7.3
+		 */
+		public function remote_request() {
+
+			// Verify Nonce.
+			check_ajax_referer( 'astra-sites', '_ajax_nonce' );
+
+			if ( ! current_user_can( 'edit_posts' ) ) {
+				wp_send_json_error( __( 'You are not allowed to perform this action', 'astra-sites' ) );
+			}
+
+			$api_url = isset( $_POST['url'] ) ? sanitize_text_field( $_POST['url'] ) : '';
+
+			$api_url = add_query_arg( astra_sites_get_api_params(), $api_url );
+
+			$response = wp_remote_get( $api_url );
+
+			if ( is_wp_error( $response ) ) {
+				wp_send_json_error( wp_remote_retrieve_body( $response ) );
+			}
+
+			$body = wp_remote_retrieve_body( $response );
+			$data = json_decode( $body, true );
+
+			wp_send_json_success( $data );
+		}
+
+		/**
 		 * API Request
 		 *
 		 * @since 2.0.0
 		 */
 		public function api_request() {
+
+			// Verify Nonce.
+			check_ajax_referer( 'astra-sites', '_ajax_nonce' );
+
 			$url = isset( $_POST['url'] ) ? sanitize_text_field( $_POST['url'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
 			if ( empty( $url ) ) {
-				wp_send_json_error( __( 'Provided API URL is empty! Please try again!', 'astra-sites' ) );
+				wp_send_json_error(
+					array(
+						'message' => __( 'Provided API URL is empty! Please try again!', 'astra-sites' ),
+						'code'    => 'Error',
+					)
+				);
 			}
 
 			$api_args = apply_filters(
-				'astra_sites_api_args',
-				array(
+				'astra_sites_api_params', array(
+					'template_status' => '',
+				)
+			);
+
+			$api_url = add_query_arg( $api_args, trailingslashit( self::get_instance()->get_api_domain() ) . 'wp-json/wp/v2/' . $url );
+
+			if ( ! astra_sites_is_valid_url( $api_url ) ) {
+				wp_send_json_error(
+					array(
+						'message' => __( 'Invalid Request URL.', 'astra-sites' ),
+						'code'    => 'Error',
+					)
+				);
+			}
+
+			$api_args = apply_filters(
+				'astra_sites_api_args', array(
 					'timeout' => 30,
 				)
 			);
 
-			$request = wp_remote_get( trailingslashit( self::get_instance()->get_api_domain() ) . 'wp-json/wp/v2/' . $url, $api_args );
+			$request = wp_remote_get( $api_url, $api_args );
 
 			if ( is_wp_error( $request ) ) {
 				$wp_error_code = $request->get_error_code();
@@ -793,6 +850,37 @@ if ( ! class_exists( 'Astra_Sites' ) ) :
 					'link'           => get_permalink( $new_page_id ),
 				)
 			);
+		}
+
+		/**
+		 * Search Images.
+		 *
+		 * @since 2.7.3.
+		 */
+		public function search_images() {
+			// Verify Nonce.
+			check_ajax_referer( 'astra-sites', '_ajax_nonce' );
+
+			if ( ! current_user_can( 'upload_files' ) ) {
+				wp_send_json_error( __( 'You are not allowed to perform this action', 'astra-sites' ) );
+			}
+
+			$params = isset( $_POST['params'] ) ? array_map( 'sanitize_text_field', $_POST['params'] ) : array();
+
+			$params['key'] = $this->pixabay_api_key;
+
+			$api_url = add_query_arg( $params, $this->pixabay_url );
+
+			$response = wp_remote_get( $api_url );
+
+			if ( is_wp_error( $response ) ) {
+				wp_send_json_error( wp_remote_retrieve_body( $response ) );
+			}
+
+			$body = wp_remote_retrieve_body( $response );
+			$data = json_decode( $body, true );
+
+			wp_send_json_success( $data );
 		}
 
 		/**
@@ -1203,8 +1291,6 @@ if ( ! class_exists( 'Astra_Sites' ) ) :
 				array(
 					'ajaxurl'             => esc_url( admin_url( 'admin-ajax.php' ) ),
 					'asyncurl'            => esc_url( admin_url( 'async-upload.php' ) ),
-					'pixabay_url'         => $this->pixabay_url,
-					'pixabay_api_key'     => $this->pixabay_api_key,
 					'is_bb_active'        => ( class_exists( 'FLBuilderModel' ) ),
 					'is_brizy_active'     => ( class_exists( 'Brizy_Editor_Post' ) ),
 					'is_elementor_active' => ( did_action( 'elementor/loaded' ) ),
@@ -1334,14 +1420,11 @@ if ( ! class_exists( 'Astra_Sites' ) ) :
 			// History.
 			wp_register_script( 'astra-sites-history', ASTRA_SITES_URI . 'inc/assets/js/history.js', array( 'jquery' ), ASTRA_SITES_VER, true );
 
-			// API.
-			wp_register_script( 'astra-sites-api', ASTRA_SITES_URI . 'inc/assets/js/astra-sites-api.js', array( 'jquery', 'astra-sites-fetch' ), ASTRA_SITES_VER, true );
-
 			// Admin Page.
 			wp_enqueue_style( 'astra-sites-admin', ASTRA_SITES_URI . 'inc/assets/css/admin.css', ASTRA_SITES_VER, true );
 			wp_style_add_data( 'astra-sites-admin', 'rtl', 'replace' );
 
-			wp_enqueue_script( 'astra-sites-admin-page', ASTRA_SITES_URI . 'inc/assets/js/admin-page.js', array( 'jquery', 'wp-util', 'updates', 'jquery-ui-autocomplete', 'astra-sites-api', 'astra-sites-history' ), ASTRA_SITES_VER, true );
+			wp_enqueue_script( 'astra-sites-admin-page', ASTRA_SITES_URI . 'inc/assets/js/admin-page.js', array( 'jquery', 'wp-util', 'updates', 'jquery-ui-autocomplete', 'astra-sites-history' ), ASTRA_SITES_VER, true );
 
 			$data = $this->get_local_vars();
 
@@ -1425,16 +1508,6 @@ if ( ! class_exists( 'Astra_Sites' ) ) :
 
 			$favorite_data = get_option( 'astra-sites-favorites' );
 
-			// Use this for premium demos.
-			$request_params = apply_filters(
-				'astra_sites_api_params',
-				array(
-					'purchase_key' => '',
-					'site_url'     => get_site_url(),
-					'per-page'     => 15,
-				)
-			);
-
 			$license_status = false;
 			if ( is_callable( 'BSF_License_Manager::bsf_is_active_license' ) ) {
 				$license_status = BSF_License_Manager::bsf_is_active_license( 'astra-pro-sites' );
@@ -1482,7 +1555,7 @@ if ( ! class_exists( 'Astra_Sites' ) ) :
 					'default_page_builder'               => $default_page_builder,
 					'default_page_builder_data'          => Astra_Sites_Page::get_instance()->get_default_page_builder(),
 					'default_page_builder_sites'         => Astra_Sites_Page::get_instance()->get_sites_by_page_builder( $default_page_builder ),
-					'sites'                              => $request_params,
+					'sites'                              => astra_sites_get_api_params(),
 					'categories'                         => array(),
 					'page-builders'                      => array(),
 					'api_sites_and_pages_tags'           => $this->get_api_option( 'astra-sites-tags' ),
@@ -1678,16 +1751,6 @@ if ( ! class_exists( 'Astra_Sites' ) ) :
 			wp_enqueue_style( 'astra-sites-admin', ASTRA_SITES_URI . 'inc/assets/css/admin.css', ASTRA_SITES_VER, true );
 			wp_style_add_data( 'astra-sites-admin', 'rtl', 'replace' );
 
-			// Use this for premium demos.
-			$request_params = apply_filters(
-				'astra_sites_api_params',
-				array(
-					'purchase_key' => '',
-					'site_url'     => '',
-					'per-page'     => 15,
-				)
-			);
-
 			$license_status = false;
 			if ( is_callable( 'BSF_License_Manager::bsf_is_active_license' ) ) {
 				$license_status = BSF_License_Manager::bsf_is_active_license( 'astra-pro-sites' );
@@ -1705,7 +1768,7 @@ if ( ! class_exists( 'Astra_Sites' ) ) :
 				'astra_sites_render_localize_vars',
 				array(
 					'plugin_name'                => Astra_Sites_White_Label::get_instance()->get_white_label_name(),
-					'sites'                      => $request_params,
+					'sites'                      => astra_sites_get_api_params(),
 					'settings'                   => array(),
 					'page-builders'              => array(),
 					'categories'                 => array(),
