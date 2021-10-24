@@ -938,6 +938,7 @@ final class FLBuilder {
 			wp_enqueue_script( 'jquery-ui-widget' );
 			wp_enqueue_script( 'jquery-ui-position' );
 			wp_enqueue_script( 'jquery-touch-punch' );
+			wp_enqueue_script( 'jquery-throttle' );
 
 			/**
 			 * Before jquery.ui.sortable.js is enqueued.
